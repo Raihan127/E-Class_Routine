@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E Section Class Routine</title>
+  <style>
+    body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #d4e9ff, #ffffff);
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background: linear-gradient(135deg, #1E3A8A, #60A5FA);
+    color: silver;
+    padding: 13px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    text-align: center; 
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+}
+nav ul li a:hover {
+    text-decoration: none;
+     color: gold;
+    
+}
+
+.material-button {
+    display: block;
+    width: 92%;
+    margin: 10px 0;
+    padding: 10px;
+    font-size: 16px;
+    color: white;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+}
+
+.material-button:hover {
+    opacity: 0.9;
+}
+
+button {
+    font-family: 'Poppins', sans-serif;
+    padding: 5px 10px;
+    margin: 5px;
+    font-size: 17px;
+    font-weight: 500;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.day-button {
+    background: linear-gradient(45deg, #3b82f6, #60a5fa); 
+    color: white;
+    box-shadow: 0 4px 6px rgba(59, 130, 246, 0.3); 
+}
+
+.day-button:hover {
+    background: linear-gradient(45deg, #2563eb, #3b82f6); 
+    transform: translateY(-4px); 
+    box-shadow: 0 6px 12px rgba(59, 130, 246, 0.5); 
+}
+
+.test-button {
+    background:  #0c7899; 
+    color: white;
+    box-shadow: 0 4px 6px rgba(4, 58, 83, 0.5); 
+    }
+
+  .test-button:hover {
+  background: linear-gradient(45deg, #4169E1,  #061c4d); 
+  transform: translateY(-4px); 
+  box-shadow: 0 6px 12px rgba(3, 44, 82, 0.5); 
+}
+
+.result-button {
+        background: linear-gradient(45deg,  #17a2b8, #138496); 
+    color: white;
+    box-shadow: 0 4px 6px rgba(59, 130, 246, 0.5);
+    }
+
+    .result-button:hover {
+         background: linear-gradient(45deg, #008080, #4682B4); 
+  transform: translateY(-4px); 
+  box-shadow: 0 6px 12px rgba(11, 2, 61, 0.5); 
+    }
+
+
+
+.class-test {
+    margin-top: 0px;
+    font-size: 22px;
+    text-align: center;
+    background-color: #f9f9f9;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#test-math {
+    color: #A52A2A; 
+    margin-bottom: 40px;
+    transition: transform 0.3s;
+}
+
+#test-eee {
+    color: #4B0082; 
+    margin-bottom: 40px;
+    transition: transform 0.3s;
+}
+
+#test-discrete {
+    color: #483D8B;
+    margin-bottom: 40px;
+    transition: transform 0.3s;
+}
+
+#test-cse {
+    color: #19832a;
+    margin-bottom: 40px;
+    transition: transform 0.3s;
+}
+
+#test-oopcse {
+    color: #690e1a;
+    margin-bottom: 40px;
+    transition: transform 0.3s;
+}
+
+#test-chemistry {
+    color: #7c1250; 
+    margin-bottom: 40px;
+    transition: transform 0.3s;
+}
+
+.class-test div {
+    margin: 0px 0;
+    padding: 0.3px;
+    border-radius: 5px;
+}
+
+.class-test div:hover {
+    background-color: #f0f0f0;
+    transform: scale(1.05);
+}
+
+/* Divider Styling */
+.divider {
+    width: 100%;
+    height: 2px;
+    background-color: #ccc;
+    margin: 20px auto;
+    border-radius: 5px;
+}
+
+section#routine {
+    padding: 6px;
+}
+
+.day {
+    background-color: white;
+    margin: 20px 0;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    height: 200px;
+    margin: 10px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 11px;
+    text-align: center;
+    border: 2px solid #ddd;
+}
+
+th {
+    background-color: #f4f4f4;
+}
+tr:hover {
+    background-color: #f1f1f1;
+}
+footer {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+    color: #888;
+}
+  </style>
+</head>
+<body>
+    <header>
+    <h1>Class Routine</h1>
+    <nav>
+        <ul>
+            <button class="day-button" onclick="showDay('sunday')">Sunday</button>
+            <button class="day-button" onclick="showDay('monday')">Monday</button>
+            <button class="day-button" onclick="showDay('tuesday')">Tuesday</button>
+            <button class="day-button" onclick="showDay('wednesday')">Wednesday</button>
+            <button class="day-button" onclick="showDay('thursday')">Thursday</button>
+            <button class="test-button" onclick="showDay('class-test')">Class Test</button>
+            <button class="result-button" onclick="window.location.href='https://raihan127.github.io/Result-/'">Result</button>
+        </ul>
+    </nav>
+    <div>
+        <label for="subject-select">Course Materials:</label>
+        <select id="subject-select" onchange="showCourseMaterial()">
+            <option value="">--Choose a Subject--</option>
+            <option value="cse">CSE-OOD</option>
+            <option value="discrete">Data Structures</option>
+            <option value="chemistry">Digital System Design</option>
+            <option value="eee">BANGLA</option>
+            <option value="math">MATH</option>
+        </select>
+    </div>
+</header>
+
+<!-- PDF Links Display Section -->
+<section id="course-material-section" style="display: none;">
+    <ul id="pdf-links"></ul> <!-- This list will be dynamically filled with PDF links -->
+</section>
+
+<!-- PDF Viewer Section for larger preview -->
+<section id="pdf-viewer-section" style="display: none;">
+    <iframe id="pdf-viewer" src="" width="100%" height="900px" style="border: none;"></iframe>
+</section>
+
+
+    <section id="routine">
+        <div id="sunday" class="day" >
+          <!--  <h2>Sunday</h2> -->
+          <h2 style="float: left;">Sunday</h2>
+<h2 style="text-align: right;">Section-E</h2>
+            <table>
+                <tr>
+                    <th>Time</th>
+                    <th>Course</th>
+                    <th>Teacher</th>
+                    <th>Room</th>
+                </tr>
+                <tr>   
+                    <td>9:00 AM - 10:30 AM</td>
+                    <td>Digital System Design Lab</td>
+                    <td>[JF][PRC]</td>
+                    <td>Lab-130</td>
+                </tr>
+                <tr>   
+                    <td>10:30 AM - 12:00 PM</td>
+                    <td>Data Structures</td>
+                    <td>SMT</td>
+                    <td>314</td>
+                </tr>
+                <tr>   
+                    <td>12:00 PM - 1:30 PM</td>
+                    <td>Bangla</td>
+                    <td>BAN</td>
+                    <td>NR2</td>
+                </tr>
+                 <tr>   
+                    <td>2:00 PM - 4:15 AM</td>
+                    <td>Data Structures Lab</td>
+                    <td>[SMT][NEW1]</td>
+                    <td>Lab-128</td>
+                </tr>
+            </table>
+        </div>
+
+        <div id="monday" class="day" style="display:none;">
+            <h2 style="float: left;">Monday</h2>
+        <h2 style="text-align: right;">Section-E</h2>
+             <table>
+                <tr>    
+                    <th>Time</th>
+                    <th>Course</th>
+                    <th>Teacher</th>
+                    <th>Room</th>
+                </tr>
+                <tr> 
+                    <td>9:00 AM - 10:30 AM</td>
+                    <td>Data Structures</td>
+                    <td>SMT</td>
+                    <td>509</td>
+                </tr>
+                <tr>   
+                    <td>10:30 AM - 12:00 PM</td>
+                    <td>Digital System Design</td>
+                    <td>PRC</td>
+                    <td>509</td>
+                </tr>
+                 <tr>   
+                    <td>12:00 PM - 1:30 PM</td>
+                    <td>MATH</td>
+                    <td>MR</td>
+                    <td>509</td>
+                </tr>
+            </table>
+        </div>
+
+       <div id="tuesday" class="day" style="display:none;">
+            <h2 style="float: left;">Tuesday</h2>
+        <h2 style="text-align: right;">Section-E</h2>
+             <table>
+                <tr>    
+                    <th>Time</th>
+                    <th>Course</th>
+                    <th>Teacher</th>
+                    <th>Room</th>
+                </tr>
+                <tr> 
+                    <td>12:00 PM - 1:30 PM</td>
+                    <td>MATH</td>
+                    <td>MR</td>
+                    <td>314</td>
+                </tr>
+                <tr>   
+                    <td>1:30 PM - 3:00 PM</td>
+                    <td>Digital System Design</td>
+                    <td>PRC</td>
+                    <td>314</td>
+                </tr>
+                <tr>  
+                    <td>3:00 PM - 4:30 PM</td>
+                    <td>CSE-OOD</td>
+                    <td>FIL</td>
+                    <td>314</td>
+                </tr>
+            </table>
+        </div>
+
+<div id="wednesday" class="day" style="display:none;">
+          <h2 style="float: left;">Wednesday</h2>
+        <h2 style="text-align: right;">Section-E</h2>
+             <table>
+                <tr>    
+                    <th>Time</th>
+                    <th>Course</th>
+                    <th>Teacher</th>
+                    <th>Room</th>
+                </tr>
+                <tr>   
+                    <td>9:00 AM - 11:15 AM</td>
+                    <td>CSE-OOD Lab</td>
+                    <td>[AAL][FIL]</td>
+                    <td>Lab-104</td>
+                </tr>
+                <tr>   
+                    <td>12:00 PM - 1:30 PM</td>
+                    <td>CSE-OOD</td>
+                    <td>FIL</td>
+                    <td>812</td>
+                </tr>
+                 <tr>   
+                    <td>1:30 PM - 3:00 PM</td>
+                    <td>Bangla</td>
+                    <td>BAN</td>
+                    <td>NR2</td>
+                </tr>
+            </table>
+        </div>
+
+
+  <!--  <div id="thursday" class="day" style="display:none;">
+            <h2 style="float: left;">Thursday</h2>
+        <h2 style="text-align: right;">Section-E</h2>
+             <table>
+                <tr>    
+                    <th>Time</th>
+                    <th>Course</th>
+                    <th>Teacher</th>
+                    <th>Room</th>
+                </tr>
+               <tr>   
+                    <td>9:00 AM - 10:30 AM</td>
+                    <td>MATH</td>
+                    <td>MR</td>
+                    <td>311</td>
+                </tr>
+                <tr>   
+                    <td>10:30 AM - 12:00 PM</td>
+                    <td>Data Structures</td>
+                    <td>NIM</td>
+                    <td>311</td>
+                </tr>
+                <tr>   
+                    <td>1:30 PM - 3:00 PM</td>
+                    <td>Bangla</td>
+                    <td>BAN</td>
+                    <td>NR2</td>
+                </tr> 
+            </table>
+        </div> -->
+
+        
+       <!-- Class Test Countdown Section -->
+        <div id="class-test" class="day" style="display:none;">
+            <div class="class-test">
+              
+              <!--   <div id="test-cse">
+                    <p>CSE-OOP Lab Final Date: <strong id="cse-date">09:00 PM, December 3, 2024</strong></p>
+                    <p>Time Remaining: <strong id="cse-remaining"></strong></p>
+                    <p>Topic: <strong id="cse-topic">Inheritance, Operator Overloading</strong></p> 
+                </div> 
+
+               <div class="divider"></div>
+           
+
+               <div id="test-math">
+                <p>Coordinate Geometry and Vector Analysis: <strong id="math-date">9:30 AM, December 15, 2024</strong></p>
+                <p>Time Remaining: <strong id="math-remaining"></strong></p>
+                <p>Exam Topic: <strong id="math-topic">JFET</strong></p> 
+            </div>
+
+             <div class="divider"></div>
+
+             <div id="test-chemistry">
+                <p>Chemistry: <strong id="chemistry-date">9:30 AM, December 17, 2024</strong></p>
+                <p>Time Remaining: <strong id="chemistry-remaining"></strong></p>
+                <p>Topic: <strong id="chemistry-topic">Reaction Kinetics</strong></p> 
+            </div>  
+
+            <div class="divider"></div>   
+
+
+            <div id="test-discrete">
+                <p>Discrete Math: <strong id="discrete-date">9:30 AM, December 19, 2024</strong></p>
+                <p>Time Remaining: <strong id="discrete-remaining"></strong></p>
+                 <p>Exam Topic: <strong id="discrete-topic">Graph</strong></p> 
+            </div> 
+
+            <div class="divider"></div> 
+
+             
+            <div id="test-oopcse">
+                <p>Object Oriented Programming: <strong id="discrete-date">9:30 AM, December 22, 2024</strong></p>
+                <p>Time Remaining: <strong id="oopcse-remaining"></strong></p>
+                <p>Exam Topic: <strong id="discrete-topic">Graph</strong></p> 
+            </div> 
+
+            <div class="divider"></div> -->
+
+
+                 <div id="test-eee">
+                    <p>Bangla: <strong id="eee-date">10:30 AM, March 24, 2025  (DEMO)</strong></p>
+                    <p>Time Remaining: <strong id="eee-remaining"></strong></p>
+                    <p>Topic: <strong id="eee-topic">Exam Topic Not fixed!</strong></p> 
+                </div> 
+                
+            </div>
+        </div>
+
+
+    </section> 
+
+    <footer>
+<p>&copy; 2025 Abu Raihan. All rights reserved.</p>
+</footer>
+    
+  <script>
+   // Function to start countdown for all class tests
+function startCountdown() {
+    // Test Dates
+    const testDates = {
+      eee: new Date("March 24, 2025 10:30:00").getTime(), 
+    //    math: new Date("December 15, 2024 09:30:00").getTime(),  // Change CT dates here, 24 hours
+      //   discrete: new Date("December 19, 2024 09:30:00").getTime(),
+        //  cse: new Date("December 03, 2024 09:00:00").getTime(),
+        //   oopcse: new Date("December 22, 2024 09:30:00").getTime(),
+        //    chemistry: new Date("December 17, 2024 09:30:00").getTime()
+    };
+
+    // Update countdown every second
+    setInterval(function() {
+        updateCountdown('eee', testDates.eee);
+     //   updateCountdown('math', testDates.math);
+     //   updateCountdown('discrete', testDates.discrete);
+     //   updateCountdown('cse', testDates.cse);
+     //   updateCountdown('oopcse', testDates.oopcse);
+      //  updateCountdown('chemistry', testDates.chemistry);
+    }, 1000);
+}
+
+// Function to update the countdown for a specific test
+function updateCountdown(subject, testDate) {
+    const now = new Date().getTime();  // Get current time
+    const timeRemaining = testDate - now;  // Calculate the difference in milliseconds
+
+    if (timeRemaining >= 0) {
+        const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+
+        document.getElementById(`${subject}-remaining`).textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+    } else {
+        // If the date has passed
+        document.getElementById(`${subject}-remaining`).textContent = "Exam Completed!";
+    }
+}
+
+// Function to show the selected day and hide others
+function showDay(day) {
+    const days = document.getElementsByClassName('day');
+    for (let i = 0; i < days.length; i++) {
+        days[i].style.display = 'none';
+    }
+    document.getElementById(day).style.display = 'block';
+
+    // Hide course material section when showing routine
+    document.getElementById('course-material-section').style.display = 'none';
+    document.getElementById('pdf-viewer-section').style.display = 'none';
+
+    // Show routine section when navigating back to days or class test
+    const routineSection = document.getElementById('routine');
+    routineSection.style.display = 'block';
+}
+
+// Function to show course material links for selected subject
+function showCourseMaterial() {
+    const selectedSubject = document.getElementById('subject-select').value;
+    const courseMaterialSection = document.getElementById('course-material-section');
+    const pdfLinks = document.getElementById('pdf-links');
+    const pdfViewerSection = document.getElementById('pdf-viewer-section');
+    const routineSection = document.getElementById('routine');
+    const classTestSection = document.getElementById('class-test');
+    const headerSection = document.querySelector('header');
+    
+    // Hide the PDF viewer initially
+    pdfViewerSection.style.display = 'none';
+
+    // Clear previous PDF links
+    pdfLinks.innerHTML = "";
+
+    const materials = {
+        eee: {
+            color: "#4CAF50", 
+            items: [
+                { name: "বাংলাদেশ নামকরন", url: "https://drive.google.com/file/d/1wQwwUEOdxbfpgqHuGOR3ZTfCBK54valq/preview" },
+                { name: "India Independence Act 1947", url: "https://drive.google.com/file/d/1x16dYBlhEB6C70-HWQ2S8qIrspd8Ma5y/preview" },
+            ],
+        },
+      //  cse: {
+        //    color: "#2196F3", 
+         //   items: [
+        //        { name: "Object-Oriented Design", url: "https://drive.google.com/file/d/1wQwwUEOdxbfpgqHuGOR3ZTfCBK54valq/preview" },
+         //       { name: "Software Engineering Basics", url: "https://drive.google.com/file/d/1x16dYBlhEB6C70-HWQ2S8qIrspd8Ma5y/preview" },
+         //   ],
+       // },
+      //  discrete: {
+       //     color: "#483D8B", 
+       //     items: [
+       //         { name: "Discrete Mathematics Overview", url: "https://drive.google.com/file/d/1wQwwUEOdxbfpgqHuGOR3ZTfCBK54valq/preview" },
+        //        { name: "Algorithms in Discrete Structures", url: "https://drive.google.com/file/d/1x16dYBlhEB6C70-HWQ2S8qIrspd8Ma5y/preview" },
+       //     ],
+      //  },
+     //   chemistry: {
+     //       color: "#9C27B0", 
+      //      items: [
+      //          { name: "Basic Chemistry", url: "https://drive.google.com/file/d/1wQwwUEOdxbfpgqHuGOR3ZTfCBK54valq/preview" },
+     //           { name: "Chemical Reactions", url: "https://drive.google.com/file/d/1x16dYBlhEB6C70-HWQ2S8qIrspd8Ma5y/preview" },
+     //       ],
+     //   },
+     //   math: {
+     //       color: "#191970", 
+     //       items: [
+      //          { name: "Calculus Fundamentals", url: "https://drive.google.com/file/d/1wQwwUEOdxbfpgqHuGOR3ZTfCBK54valq/preview" },
+      //          { name: "Linear Algebra", url: "https://drive.google.com/file/d/1x16dYBlhEB6C70-HWQ2S8qIrspd8Ma5y/preview" },
+       //     ],
+     //   },
+    };
+
+    // Check if the selected subject has materials
+    if (materials[selectedSubject]) {
+        courseMaterialSection.style.display = 'block';
+
+        // Loop through the materials and create buttons
+        materials[selectedSubject].items.forEach(material => {
+            const button = document.createElement('button');
+            button.textContent = material.name;
+            button.classList.add('material-button'); // Add class for styling
+            button.style.backgroundColor = materials[selectedSubject].color; // Set the background color
+            button.onclick = function() {
+                showPDF(material.url);  // Show PDF on click
+                return false;  // Prevents page refresh
+            };
+            pdfLinks.appendChild(button);
+        });
+    } else {
+        courseMaterialSection.style.display = 'none';
+    }
+}
+
+// Function to show PDF and hide other sections
+function showPDF(pdfUrl) {
+    const pdfViewer = document.getElementById('pdf-viewer');
+    const pdfViewerSection = document.getElementById('pdf-viewer-section');
+    const routineSection = document.getElementById('routine');
+    const classTestSection = document.getElementById('class-test');
+    const headerSection = document.querySelector('header');
+
+    // Set the PDF source
+    pdfViewer.src = pdfUrl;
+    
+    // Show the PDF viewer
+    pdfViewerSection.style.display = 'block';
+
+    // Hide other sections
+    routineSection.style.display = 'none';
+    classTestSection.style.display = 'none';
+}
+
+// Combined window.onload to avoid conflicts
+window.onload = function() {
+    showDay('sunday');
+    startCountdown();
+};
+
+  </script>
+</body>
+</html>
